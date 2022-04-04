@@ -1,0 +1,49 @@
+.header {
+  font-size: 36;
+  color: white;
+  font-family: "Avenir-Heavy";
+}
+
+.login-fields {
+  font-size: 13;
+  color: white;
+  font-family: "Avenir-Medium";
+}
+
+.normal-text {
+  font-size: 15;
+  font-family: "Avenir-Medium";
+  color: white;
+}
+
+.accent-text {
+  font-size: 15;
+  font-family: "Avenir-Heavy";
+  color: #04ff00;
+}
+
+.edit-text {
+  font-size: 19;
+  max-lines: 1;
+  color: white;
+  placeholder-color: #a7c1ea;
+  border-bottom-color: white;
+  border-bottom-width: 2;
+  border-spacing: 20;
+}
+
+.edit-text:focus {
+  border-bottom-color: #04ff00;
+}
+
+.login-button {
+  color: #778eb0;
+  background-color: #a7c1ea;
+  font-size: 19;
+  border-radius: 10;
+}
+
+.login-button:enabled {
+  color: #0655d1;
+  background-color: white;
+}

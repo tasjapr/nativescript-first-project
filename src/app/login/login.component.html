@@ -1,0 +1,42 @@
+<StackLayout backgroundColor="#246AD1">
+  <label text="Welcome back" class="header" margin="92, 0, 0, 16"></label>
+
+  <label text="Email" class="login-fields" margin="32, 16, 0, 16"></label>
+  <TextField
+    hint="name@mail.com"
+    keyboardType="email"
+    returnKeyType="next"
+    autocorrect="false"
+    maxLength="20"
+    [(ngModel)]="user.email"
+    class="edit-text"
+  >
+  </TextField>
+
+  <label text="Password" class="login-fields" margin="32, 16, 0, 16"></label>
+  <TextField
+    hint="Your password"
+    returnKeyType="done"
+    autocorrect="false"
+    secure="true"
+    maxLength="20"
+    [(ngModel)]="user.password"
+    class="edit-text"
+  >
+  </TextField>
+
+  <label
+    text="Forgot password?"
+    class="accent-text"
+    margin="16, 0, 0, 16"
+    (tap)="forgotPassword"
+  ></label>
+
+  <button text="Login" class="login-button" margin="76, 16, 0, 16" (tap)="submit" isEnabled="true"></button>
+
+    <FlexboxLayout margin="24" horizontalAlignment="center">
+      <label text="Don't have an account? " class="normal-text"></label>
+      <label text="Sign Up" class="accent-text" (tap)="signUp"></label>
+    </FlexboxLayout>
+ 
+</StackLayout>
