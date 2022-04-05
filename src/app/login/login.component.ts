@@ -24,12 +24,11 @@ export class LoginComponent {
     this.user = new User();
   }
 
-  submit() {
-    if (!this.user.email || !this.user.password) {
-      //show error
-      return;
-    }
+  validateLoginFields() {
+    return this.user.email && this.user.password;
+  }
 
+  submit() {
     console.log("submit()");
     this.login();
   }
@@ -48,11 +47,11 @@ export class LoginComponent {
 
   signUp() {
     console.log("signUp()");
-
     this.router.navigate(["/signUp"]);
   }
 
   forgotPassword() {
     console.log("forgotPassword()");
+    this.router.navigate(["/forgotPassword"]);
   }
 }

@@ -3,11 +3,11 @@ import { Router } from "@angular/router";
 import { Page } from "@nativescript/core";
 
 @Component({
-  selector: "ns-home",
-  templateUrl: "./home.component.html",
-  styleUrls: ["./home.component.css"],
+  selector: "ns-settings",
+  templateUrl: "./settings.component.html",
+  styleUrls: ["./settings.component.css"],
 })
-export class HomeComponent {
+export class SettingsComponent {
   constructor(private page: Page, private router: Router) {
     this.page.actionBarHidden = true;
   }

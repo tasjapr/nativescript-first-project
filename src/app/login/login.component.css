@@ -1,24 +1,28 @@
 .header {
   font-size: 36;
   color: white;
-  font-family: "Avenir-Heavy";
+  font-family: "Avenir", "Avenir-Heavy";
+  font-weight: 700;
 }
 
 .login-fields {
   font-size: 13;
   color: white;
-  font-family: "Avenir-Medium";
+  font-family: "Avenir", "Avenir-Medium";
+  font-weight: 500;
 }
 
 .normal-text {
   font-size: 15;
-  font-family: "Avenir-Medium";
+  font-family: "Avenir", "Avenir-Medium";
+  font-weight: 500;
   color: white;
 }
 
 .accent-text {
   font-size: 15;
-  font-family: "Avenir-Heavy";
+  font-family: "Avenir", "Avenir-Heavy";
+  font-weight: 500;
   color: #04ff00;
 }
 
@@ -37,13 +41,14 @@
 }
 
 .login-button {
-  color: #778eb0;
-  background-color: #a7c1ea;
+  color: #0655d1;
+  background-color: white;
   font-size: 19;
+  font-family: "Avenir", "Avenir-Heavy";
   border-radius: 10;
 }
 
-.login-button:enabled {
-  color: #0655d1;
-  background-color: white;
+.login-button:disabled {
+  color: #778eb0;
+  background-color: #A7C1EA;
 }
