@@ -9,8 +9,10 @@ import { UserService } from "./@shared/user.service";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { LoginComponent } from "./login/login.component";
+import { ForgotPasswordComponent } from "./forgot-password/forgot-password.component";
 import { HomeComponent } from "./home/home.component";
 import { SettingsComponent } from "./settings/settings.component";
+import { SignUpComponent } from "./sign-up/sign-up.component"
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -23,8 +25,10 @@ import { SettingsComponent } from "./settings/settings.component";
   declarations: [
     AppComponent,
     LoginComponent,
+    ForgotPasswordComponent,
     HomeComponent,
     SettingsComponent,
+    SignUpComponent,
   ],
   providers: [UserService],
   schemas: [NO_ERRORS_SCHEMA],

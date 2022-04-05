@@ -47,11 +47,11 @@ export class LoginComponent {
 
   signUp() {
     console.log("signUp()");
-    this.router.navigate(["/signUp"]);
+    this.router.navigate(["/sign-up"]);
   }
 
   forgotPassword() {
     console.log("forgotPassword()");
-    this.router.navigate(["/forgotPassword"]);
+    this.router.navigate(["/forgot-password"]);
   }
 }
