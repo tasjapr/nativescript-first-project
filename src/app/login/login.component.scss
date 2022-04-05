@@ -1,0 +1,20 @@
+@use "../../app.scss";
+
+.login-fields {
+  @extend .normal-text;
+  font-size: 13;
+}
+
+.edit-text {
+  font-size: 19;
+  max-lines: 1;
+  color: white;
+  placeholder-color: #a7c1ea;
+  border-bottom-color: white;
+  border-bottom-width: 2;
+  border-spacing: 20;
+}
+
+.edit-text:focus {
+  border-bottom-color: #04ff00;
+}

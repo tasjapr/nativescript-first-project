@@ -1,0 +1,34 @@
+@import "@nativescript/theme/css/core.css";
+@import "@nativescript/theme/css/default.css";
+
+.title-text {
+  font-size: 36;
+  color: white;
+  font-family: "Avenir", "Avenir-Heavy";
+  font-weight: 700;
+}
+
+.normal-text {
+  font-size: 15;
+  color: white;
+  font-family: "Avenir", "Avenir-Medium";
+  font-weight: 500;
+}
+
+.accent-text {
+  @extend .normal-text;
+  color: #04ff00;
+}
+
+.button {
+  color: #0655d1;
+  background-color: white;
+  font-size: 19;
+  font-family: "Avenir", "Avenir-Heavy";
+  border-radius: 10;
+}
+
+.button:disabled {
+  color: #778eb0;
+  background-color: #a7c1ea;
+}
