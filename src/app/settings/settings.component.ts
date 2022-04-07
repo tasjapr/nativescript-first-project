@@ -5,7 +5,7 @@ import { Page } from "@nativescript/core";
 @Component({
   selector: "ns-settings",
   templateUrl: "./settings.component.html",
-  styleUrls: ["./settings.component.css"],
+  styleUrls: ["./settings.component.scss"],
 })
 export class SettingsComponent {
   constructor(private page: Page, private router: Router) {

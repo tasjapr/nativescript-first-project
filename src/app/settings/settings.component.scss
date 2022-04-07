@@ -1,0 +1,48 @@
+@use "../../app.scss" as main;
+
+.page {
+  background-color: main.$background-gray-color;
+}
+
+.header {
+  @extend .header-text;
+  background-color: main.$background-blue-color;
+}
+
+.clickable-item {
+  background-color: white;
+}
+
+.user-name {
+  @extend .header-text;
+  font-size: 19;
+  color: #0a2145;
+}
+
+.user-email {
+  @extend .normal-text;
+  color: main.$dark-gray;
+}
+
+.settings-block-title {
+  @extend .normal-text;
+  color: main.$text-dark-blue;
+}
+
+.settings-title {
+  @extend .avenir-roman;
+  color: main.$text-dark-blue;
+  font-size: 19;
+}
+
+.log-out {
+  @extend .settings-title;
+  @extend .clickable-item;
+  color: main.$accent-orange;
+}
+
+.version {
+  @extend .settings-title;
+  color: main.$icon-color;
+  font-size: 15;
+}

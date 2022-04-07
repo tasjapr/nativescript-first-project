@@ -1,34 +1,85 @@
 @import "@nativescript/theme/css/core.css";
 @import "@nativescript/theme/css/default.css";
 
-.title-text {
+$background-blue-color: #0655D1;
+$accent-green: #04ff00;
+$background-gray-color: #F2F3F6;
+$text-dark-blue: #041A3B;
+$dark-gray: #99A0AA;
+$icon-color:#BFC4CA;
+$accent-orange: #FF5300;
+
+.avenir-heavy {
+  font-family: 'Avenir Heavy', 'Avenir-Heavy';
+}
+
+.avenir-medium {
+  font-family: 'Avenir Medium', 'Avenir-Medium';
+}
+
+.avenir-roman {
+  font-family: 'Avenir', 'Avenir-Roman';
+}
+
+.header-text {
+  @extend .avenir-heavy;
   font-size: 36;
   color: white;
-  font-family: "Avenir", "Avenir-Heavy";
-  font-weight: 700;
 }
 
 .normal-text {
+  @extend .avenir-medium;
   font-size: 15;
   color: white;
-  font-family: "Avenir", "Avenir-Medium";
-  font-weight: 500;
 }
 
 .accent-text {
   @extend .normal-text;
-  color: #04ff00;
+  color: $accent-green;
 }
 
 .button {
-  color: #0655d1;
+  @extend .avenir-heavy;
+  color: $background-blue-color;
   background-color: white;
   font-size: 19;
-  font-family: "Avenir", "Avenir-Heavy";
   border-radius: 10;
 }
 
 .button:disabled {
   color: #778eb0;
   background-color: #a7c1ea;
+}
+
+.ico {
+    font-family: "IcoMoon-Free";
+}
+
+.far {
+    font-family: "Font Awesome 5 Free", "fa-regular-400";
+}
+
+.fab {
+    font-family: "Font Awesome 5 Brands", "fa-brands-400";
+}
+
+.fas {
+    font-family: "Font Awesome 5 Free", "fa-solid-900";
+}
+
+.navigate-next-icon {
+  @extend .fas;
+  color: $icon-color;
+  font-size: 12;
+}
+
+.circle-image {
+  width: 44;
+  height: 44;
+  border-radius: 100%;
+}
+
+.divider {
+  background-color: $icon-color;
+  height: 1;
 }

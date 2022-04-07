@@ -1,4 +1,8 @@
-@use "../../app.scss";
+@use "../../app.scss" as main;
+
+.page {
+    background-color: main.$background-blue-color;
+}
 
 .login-fields {
   @extend .normal-text;
