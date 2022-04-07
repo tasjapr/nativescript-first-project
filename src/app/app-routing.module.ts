@@ -1,20 +1,39 @@
 import { NgModule } from "@angular/core";
 import { Routes } from "@angular/router";
-import { NativeScriptRouterModule } from "@nativescript/angular";
+import {
+  NativeScriptRouterModule,
+  NSEmptyOutletComponent,
+} from "@nativescript/angular";
 
 import { LoginComponent } from "./login/login.component";
-import { HomeComponent } from "./home/home.component";
-import { SettingsComponent } from "./settings/settings.component";
 import { ForgotPasswordComponent } from "./forgot-password/forgot-password.component";
 import { SignUpComponent } from "./sign-up/sign-up.component";
+import { CustomTabsComponent } from "./tabs/customtabs.component";
 
 const routes: Routes = [
-  { path: "", redirectTo: "/login", pathMatch: "full" },
+  { path: "", redirectTo: "/tabs", pathMatch: "full" },
   { path: "login", component: LoginComponent },
-  { path: "home", component: HomeComponent },
-  { path: "settings", component: SettingsComponent },
   { path: "forgot-password", component: ForgotPasswordComponent },
   { path: "sign-up", component: SignUpComponent },
+
+  {
+    path: "tabs",
+    component: CustomTabsComponent,
+    children: [
+      {
+        path: "home",
+        loadChildren: () => import("./home/home.module").then(m => m.HomeModule),
+        component: NSEmptyOutletComponent,
+        outlet: "homeTab",
+      },
+      {
+        path: "settings",
+        loadChildren: () => import("./settings/settings.module").then(m => m.SettingsModule),
+        component: NSEmptyOutletComponent,
+        outlet: "settingsTab",
+      },
+    ],
+  },
 ];
 
 @NgModule({

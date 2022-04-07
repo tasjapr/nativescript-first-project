@@ -1,0 +1,29 @@
+<StackLayout class="page">
+
+    <BottomNavigation selectedIndex="1">
+
+        <TabStrip>
+
+            <TabStripItem>
+                <Image src="font://&#xf001;" class="fas"></Image>
+                <Label text="Home - TabStripItem"></Label>
+            </TabStripItem>
+
+            <TabStripItem>
+                <Image src="font://&#xf001;" class="fas"></Image>
+                <Label text="Other - TabStripItem"></Label>
+            </TabStripItem>
+
+        </TabStrip>
+
+        <TabContentItem>
+            <page-router-outlet name="homeTab"></page-router-outlet>
+        </TabContentItem>
+
+        <TabContentItem>
+            <page-router-outlet name="settingsTab"></page-router-outlet>
+        </TabContentItem>
+
+    </BottomNavigation>
+
+</StackLayout>

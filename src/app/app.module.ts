@@ -8,11 +8,14 @@ import { UserService } from "./@shared/user.service";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
+
 import { LoginComponent } from "./login/login.component";
 import { ForgotPasswordComponent } from "./forgot-password/forgot-password.component";
-import { HomeComponent } from "./home/home.component";
-import { SettingsComponent } from "./settings/settings.component";
-import { SignUpComponent } from "./sign-up/sign-up.component"
+import { SignUpComponent } from "./sign-up/sign-up.component";
+
+import { SettingsModule } from "./settings/settings.module";
+import { HomeModule } from "./home/home.module";
+import { CustomTabsModule } from "./tabs/customtabs.module";
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -21,13 +24,14 @@ import { SignUpComponent } from "./sign-up/sign-up.component"
     AppRoutingModule,
     NativeScriptHttpClientModule,
     NativeScriptFormsModule,
+    SettingsModule,
+    HomeModule,
+    CustomTabsModule
   ],
   declarations: [
     AppComponent,
     LoginComponent,
     ForgotPasswordComponent,
-    HomeComponent,
-    SettingsComponent,
     SignUpComponent,
   ],
   providers: [UserService],
