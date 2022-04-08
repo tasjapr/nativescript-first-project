@@ -3,8 +3,11 @@ import {
   NativeScriptFormsModule,
   NativeScriptHttpClientModule,
   NativeScriptModule,
+  NativeScriptCommonModule
 } from "@nativescript/angular";
+
 import { UserService } from "./@shared/user.service";
+import { WalletsService } from "./@shared/wallets.service";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -23,10 +26,11 @@ import { CustomTabsModule } from "./tabs/customtabs.module";
     NativeScriptModule,
     AppRoutingModule,
     NativeScriptHttpClientModule,
+    NativeScriptCommonModule,
     NativeScriptFormsModule,
     SettingsModule,
     HomeModule,
-    CustomTabsModule
+    CustomTabsModule,
   ],
   declarations: [
     AppComponent,
@@ -34,7 +38,7 @@ import { CustomTabsModule } from "./tabs/customtabs.module";
     ForgotPasswordComponent,
     SignUpComponent,
   ],
-  providers: [UserService],
+  providers: [UserService, WalletsService],
   schemas: [NO_ERRORS_SCHEMA],
 })
 export class AppModule {}

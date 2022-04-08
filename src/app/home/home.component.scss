@@ -1,3 +1,75 @@
-.page {
-    background-color: aqua;
+@use "../../app.scss" as main;
+
+$currency-color: #6694dc;
+$value-reduction: #FF3B89;
+$value-increase: #21B610;
+
+.header {
+    background-color: main.$background-blue-color;
+}
+
+.graphic {
+    background-color: #6694dc
+}
+
+.balance-title {
+  @extend .normal-text;
+  font-size: 13;
+}
+
+.balance-change {
+  @extend .balance-title;
+  color: main.$accent-green;
+}
+
+.balance-value {
+  @extend .avenir-roman;
+  color: white;
+  font-size: 56;
+}
+
+.balance-currency {
+  @extend .balance-value;
+  color: $currency-color;
+  font-size: 56;
+}
+
+.wallets-title {
+  @extend .normal-text;
+  color: main.$text-dark-blue;
+  font-size: 22;
+}
+
+.list-wallet {
+  color: white;
+  border-color: main.$background-gray-color;
+  border-bottom-width: 12;
+  background-color: greenyellow;
+}
+
+.card-title {
+  @extend .wallets-title;
+  font-size: 19;
+}
+
+.card-value {
+  @extend .avenir-heavy;
+  font-size: 19;
+  color: main.$text-dark-blue;
+}
+
+.card-total-cost {
+  @extend .avenir-medium;
+  color: main.$dark-gray;
+  font-size: 13;
+}
+
+.value-reduction {
+  @extend .card-total-cost;
+  color: $value-reduction;
+}
+
+.value-increase {
+  @extend .card-total-cost;
+  color: $value-increase;
 }

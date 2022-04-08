@@ -9,6 +9,15 @@ $dark-gray: #99A0AA;
 $icon-color:#BFC4CA;
 $accent-orange: #FF5300;
 
+ListView {
+  separator-color: transparent;
+  background-color: white;
+}
+
+.page {
+  background-color: $background-gray-color;
+}
+
 .avenir-heavy {
   font-family: 'Avenir Heavy', 'Avenir-Heavy';
 }
@@ -65,12 +74,6 @@ $accent-orange: #FF5300;
 
 .fas {
     font-family: "Font Awesome 5 Free", "fa-solid-900";
-}
-
-.navigate-next-icon {
-  @extend .fas;
-  color: $icon-color;
-  font-size: 12;
 }
 
 .circle-image {

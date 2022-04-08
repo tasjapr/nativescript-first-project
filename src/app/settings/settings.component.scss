@@ -1,9 +1,5 @@
 @use "../../app.scss" as main;
 
-.page {
-  background-color: main.$background-gray-color;
-}
-
 .header {
   @extend .header-text;
   background-color: main.$background-blue-color;

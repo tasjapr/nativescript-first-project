@@ -9,10 +9,12 @@ import { LoginComponent } from "./login/login.component";
 import { ForgotPasswordComponent } from "./forgot-password/forgot-password.component";
 import { SignUpComponent } from "./sign-up/sign-up.component";
 import { CustomTabsComponent } from "./tabs/customtabs.component";
+import { HomeComponent } from "./home/home.component";
 
 const routes: Routes = [
-  { path: "", redirectTo: "/tabs", pathMatch: "full" },
+  { path: "", redirectTo: "/home", pathMatch: "full" },
   { path: "login", component: LoginComponent },
+  { path: "home", component: HomeComponent },
   { path: "forgot-password", component: ForgotPasswordComponent },
   { path: "sign-up", component: SignUpComponent },
 
