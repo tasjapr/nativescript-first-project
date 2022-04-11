@@ -3,7 +3,8 @@ import {
   NativeScriptFormsModule,
   NativeScriptHttpClientModule,
   NativeScriptModule,
-  NativeScriptCommonModule
+  NativeScriptCommonModule,
+  registerElement
 } from "@nativescript/angular";
 
 import { UserService } from "./@shared/user.service";
@@ -19,6 +20,11 @@ import { SignUpComponent } from "./sign-up/sign-up.component";
 import { SettingsModule } from "./settings/settings.module";
 import { HomeModule } from "./home/home.module";
 import { CustomTabsModule } from "./tabs/customtabs.module";
+
+registerElement(
+  "LineChart",
+  () => require("@nativescript-community/ui-chart/charts").LineChart
+);
 
 @NgModule({
   bootstrap: [AppComponent],

@@ -47,4 +47,18 @@ export class WalletsService {
 
     return wallets;
   }
+
+  getPriceChanges() {
+    var data = [
+      { index: 6, value: 20500 },
+      { index: 6.5, value: 22000 },
+      { index: 7, value: 24000 },
+      { index: 7.5, value: 21400 },
+      { index: 8, value: 17500 },
+      { index: 8.5, value: 18800 },
+      { index: 9, value: 22700 }
+    ];
+
+    return data;
+  }
 }

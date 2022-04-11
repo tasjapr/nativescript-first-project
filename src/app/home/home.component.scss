@@ -8,8 +8,12 @@ $value-increase: #21B610;
     background-color: main.$background-blue-color;
 }
 
-.graphic {
-    background-color: #6694dc
+.chart {
+  background-color: main.$background-blue-color;
+}
+
+.line-chart {
+  --axis-text-color: #A7C1EA;
 }
 
 .balance-title {
