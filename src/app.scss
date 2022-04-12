@@ -9,6 +9,11 @@ $dark-gray: #99A0AA;
 $icon-color:#BFC4CA;
 $accent-orange: #FF5300;
 
+Label {
+  padding-top: -2;
+  padding-bottom: -2;
+}
+
 ListView {
   separator-color: transparent;
   background-color: white;

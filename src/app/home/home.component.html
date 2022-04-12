@@ -15,7 +15,12 @@
       </FlexboxLayout>
 
       <StackLayout class="chart">
-        <LineChart (loaded)="onChartLoaded($event)" height="135" margin="0, 8, 24" class="line-chart">
+        <LineChart
+          (loaded)="onChartLoaded($event)"
+          height="135"
+          margin="0, 8, 24"
+          class="line-chart"
+        >
         </LineChart>
       </StackLayout>
     </StackLayout>
@@ -57,13 +62,16 @@
             ></Image>
 
             <StackLayout row="0" col="1" rowSpan="2" verticalAlignment="center">
-              <label [text]="wallet.name" class="card-title"></label>
+              <label
+                [text]="wallet.name"
+                class="card-title"
+              ></label>
               <label
                 [text]="wallet.change + '%'"
                 [ngClass]="{
-                  'value-reduction': wallet.change <= 0,
-                  'value-increase': wallet.change > 0
-                }"
+                  'value-reduction': wallet.change < 0,
+                  'value-increase': wallet.change >= 0
+                }"  
               ></label>
             </StackLayout>
 

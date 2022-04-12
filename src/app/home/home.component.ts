@@ -73,7 +73,7 @@ export class HomeComponent {
     const data = this.walletsService.getPriceChanges();
 
     const set = new LineDataSet(data, "Legend Label", "index", "value");
-    set.setColor("#04FF00");
+    set.setColor(chart.style.getCssVariable("--line-color"));
     set.setLineWidth(3);
     set.setAxisDependency(AxisDependency.RIGHT);
 
