@@ -12,7 +12,7 @@ import { CustomTabsComponent } from "./tabs/customtabs.component";
 import { HomeComponent } from "./home/home.component";
 
 const routes: Routes = [
-  { path: "", redirectTo: "/home", pathMatch: "full" },
+  { path: "", redirectTo: "/tabs", pathMatch: "full" },
   { path: "login", component: LoginComponent },
   { path: "home", component: HomeComponent },
   { path: "forgot-password", component: ForgotPasswordComponent },
