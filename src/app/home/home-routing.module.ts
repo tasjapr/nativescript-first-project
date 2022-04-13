@@ -4,10 +4,7 @@ import { NativeScriptRouterModule } from "@nativescript/angular";
 
 import { HomeComponent } from "./home.component";
 
-const routes: Routes = [
-  { path: "", redirectTo: "home", pathMatch: "full" },
-  { path: "home", component: HomeComponent },
-];
+const routes: Routes = [{ path: "default", component: HomeComponent }];
 
 @NgModule({
   imports: [NativeScriptRouterModule.forChild(routes)],

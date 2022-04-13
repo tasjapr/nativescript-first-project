@@ -8,33 +8,30 @@ import {
 import { LoginComponent } from "./login/login.component";
 import { ForgotPasswordComponent } from "./forgot-password/forgot-password.component";
 import { SignUpComponent } from "./sign-up/sign-up.component";
-import { CustomTabsComponent } from "./tabs/customtabs.component";
-import { HomeComponent } from "./home/home.component";
 
 const routes: Routes = [
-  { path: "", redirectTo: "/tabs", pathMatch: "full" },
+  {
+    path: "",
+    redirectTo:
+      "/(homeTab:home/default//settingsTab:settings/default)",
+    pathMatch: "full",
+  },
   { path: "login", component: LoginComponent },
-  { path: "home", component: HomeComponent },
   { path: "forgot-password", component: ForgotPasswordComponent },
   { path: "sign-up", component: SignUpComponent },
-
   {
-    path: "tabs",
-    component: CustomTabsComponent,
-    children: [
-      {
-        path: "home",
-        loadChildren: () => import("./home/home.module").then(m => m.HomeModule),
-        component: NSEmptyOutletComponent,
-        outlet: "homeTab",
-      },
-      {
-        path: "settings",
-        loadChildren: () => import("./settings/settings.module").then(m => m.SettingsModule),
-        component: NSEmptyOutletComponent,
-        outlet: "settingsTab",
-      },
-    ],
+    path: "home",
+    component: NSEmptyOutletComponent,
+    loadChildren: () =>
+      import("~/app/home/home.module").then((m) => m.HomeModule),
+    outlet: "homeTab",
+  },
+  {
+    path: "settings",
+    component: NSEmptyOutletComponent,
+    loadChildren: () =>
+      import("~/app/settings/settings.module").then((m) => m.SettingsModule),
+    outlet: "settingsTab",
   },
 ];
 

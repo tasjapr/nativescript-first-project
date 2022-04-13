@@ -19,7 +19,6 @@ import { SignUpComponent } from "./sign-up/sign-up.component";
 
 import { SettingsModule } from "./settings/settings.module";
 import { HomeModule } from "./home/home.module";
-import { CustomTabsModule } from "./tabs/customtabs.module";
 
 registerElement(
   "LineChart",
@@ -36,7 +35,6 @@ registerElement(
     NativeScriptFormsModule,
     SettingsModule,
     HomeModule,
-    CustomTabsModule,
   ],
   declarations: [
     AppComponent,
