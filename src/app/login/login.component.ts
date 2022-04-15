@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild } from "@angular/core";
-import { Router } from "@angular/router";
+import { RouterExtensions } from "@nativescript/angular";
 import { Page } from "@nativescript/core";
 
 import { User } from "../@shared/user.model";
@@ -18,7 +18,7 @@ export class LoginComponent {
   constructor(
     private page: Page,
     private userService: UserService,
-    private router: Router
+    private routerExtensions: RouterExtensions
   ) {
     this.page.actionBarHidden = true;
     this.user = new User();
@@ -34,24 +34,29 @@ export class LoginComponent {
   }
 
   login() {
-    console.log("login()");
+    console.log("login() - " + this.user.email);
     this.userService
       .login(this.user)
       .then(() => {
-        this.router.navigate(["/home"]);
+        console.log("login success");
+        this.routerExtensions.navigate(["/tabs/default"], {
+          clearHistory: true,
+        });
       })
       .catch(() => {
-        //show error
+        console.log("login failed");
       });
   }
 
   signUp() {
     console.log("signUp()");
-    this.router.navigate(["/sign-up"]);
+    this.routerExtensions.navigate(["tabs/home"], {
+      clearHistory: true,
+    });
   }
 
   forgotPassword() {
     console.log("forgotPassword()");
-    this.router.navigate(["/forgot-password"]);
+    this.routerExtensions.navigate(["/forgot-password"]);
   }
 }

@@ -3,8 +3,8 @@ import { Router } from "@angular/router";
 import { Font, Page } from "@nativescript/core";
 import { Wallet } from "../@shared/wallet.model";
 import { WalletsService } from "../@shared/wallets.service";
-import { MonthFormatter } from "./MonthFormatter";
-import { PriceFormatter } from "./PriceFormatter";
+import { MonthFormatter } from "../formatters/MonthFormatter";
+import { PriceFormatter } from "../formatters/PriceFormatter";
 
 import { LineChart } from "@nativescript-community/ui-chart/charts/LineChart";
 import { LineDataSet } from "@nativescript-community/ui-chart/data/LineDataSet";

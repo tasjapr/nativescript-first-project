@@ -4,7 +4,7 @@ import {
   NativeScriptHttpClientModule,
   NativeScriptModule,
   NativeScriptCommonModule,
-  registerElement
+  registerElement,
 } from "@nativescript/angular";
 
 import { UserService } from "./@shared/user.service";
@@ -17,6 +17,7 @@ import { LoginComponent } from "./login/login.component";
 import { ForgotPasswordComponent } from "./forgot-password/forgot-password.component";
 import { SignUpComponent } from "./sign-up/sign-up.component";
 
+import { TabsModule } from "./tabs/tabs.module";
 import { SettingsModule } from "./settings/settings.module";
 import { HomeModule } from "./home/home.module";
 
@@ -33,6 +34,7 @@ registerElement(
     NativeScriptHttpClientModule,
     NativeScriptCommonModule,
     NativeScriptFormsModule,
+    TabsModule,
     SettingsModule,
     HomeModule,
   ],

@@ -1,16 +1,1 @@
 <page-router-outlet actionBarVisibility="never"></page-router-outlet>
-<TabView
-  [selectedIndex]="selectedIndex"
-  androidTabsPosition="bottom"
-  androidSelectedTabHighlightColor="#ffffff"
-  iosIconRenderingMode="alwaysOriginal"
-  (selectedIndexChanged)="tabViewIndexChange($event)"
->
-  <GridLayout *tabItem="homeTab">
-    <page-router-outlet name="homeTab"></page-router-outlet>
-  </GridLayout>
-
-  <GridLayout *tabItem="settingsTab">
-    <page-router-outlet name="settingsTab"></page-router-outlet>
-  </GridLayout>
-</TabView>

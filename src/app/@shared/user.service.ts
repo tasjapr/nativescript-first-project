@@ -8,7 +8,11 @@ export class UserService {
   }
 
   login(user: User) {
-    return new Promise((resolve, reject) => {});
+    if (user.email === "aaa") {
+      return Promise.reject("Invalid password");
+    } else {
+      return Promise.resolve();
+    }
   }
 
   resetPassword(email: String) {

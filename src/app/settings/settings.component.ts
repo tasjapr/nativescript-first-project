@@ -1,5 +1,5 @@
-import { Component, ElementRef, ViewChild } from "@angular/core";
-import { Router } from "@angular/router";
+import { Component } from "@angular/core";
+import {RouterExtensions} from "@nativescript/angular"
 import { Page } from "@nativescript/core";
 
 @Component({
@@ -8,7 +8,12 @@ import { Page } from "@nativescript/core";
   styleUrls: ["./settings.component.scss"],
 })
 export class SettingsComponent {
-  constructor(private page: Page, private router: Router) {
+  constructor(private page: Page, private routerExtension: RouterExtensions) {
     this.page.actionBarHidden = true;
+  }
+
+  logout() {
+    console.log("logout");
+    this.routerExtension.navigateByUrl("login");
   }
 }
