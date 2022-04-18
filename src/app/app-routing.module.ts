@@ -10,7 +10,7 @@ import { WalletDetailsComponent } from "./wallet-details/wallet-details.componen
 const routes: Routes = [
   {
     path: "",
-    redirectTo: "/tabs/default",
+    redirectTo: "login",
     pathMatch: "full",
   },
   { path: "login", component: LoginComponent },
