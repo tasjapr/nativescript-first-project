@@ -3,8 +3,8 @@ import { Router } from "@angular/router";
 import { Font, Page } from "@nativescript/core";
 import { Wallet } from "../@shared/wallet.model";
 import { WalletsService } from "../@shared/wallets.service";
-import { MonthFormatter } from "../formatters/MonthFormatter";
-import { PriceFormatter } from "../formatters/PriceFormatter";
+import { MonthFormatter } from "../utils/formatters/MonthFormatter";
+import { PriceFormatter } from "../utils/formatters/PriceFormatter";
 
 import { LineChart } from "@nativescript-community/ui-chart/charts/LineChart";
 import { LineDataSet } from "@nativescript-community/ui-chart/data/LineDataSet";
@@ -31,6 +31,25 @@ export class HomeComponent {
   }
 
   onItemTap(args) {}
+
+  getCurrentBalance(): string {
+    return this.walletsService.getCurrentBalance().toString();
+  }
+
+  getBalanceChange(): string {
+    let balanceChange = this.walletsService.getBalanceChange();
+    let prefix: string;
+    if (balanceChange > 0) prefix = "+";
+    else prefix = "-";
+
+    return prefix + balanceChange + "%";
+  }
+
+  getFormattedTotalBalance(wallet: Wallet) {
+    return (
+      "$" + wallet.totalBalance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    );
+  }
 
   addWallet() {
     this.wallets = this.walletsService.addWallet();

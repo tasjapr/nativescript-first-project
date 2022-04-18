@@ -1,11 +1,11 @@
 @use "../../app.scss" as main;
 
 $currency-color: #6694dc;
-$value-reduction: #FF3B89;
-$value-increase: #21B610;
+$value-reduction: #ff3b89;
+$value-increase: #21b610;
 
 .header {
-    background-color: main.$background-blue-color;
+  background-color: main.$background-blue-color;
 }
 
 .chart {
@@ -13,8 +13,8 @@ $value-increase: #21B610;
 }
 
 .line-chart {
-  --axis-text-color: #A7C1EA;
-  --line-color: #04FF00;
+  --axis-text-color: #a7c1ea;
+  --line-color: #04ff00;
 }
 
 .balance-title {
@@ -43,13 +43,6 @@ $value-increase: #21B610;
   @extend .normal-text;
   color: main.$text-dark-blue;
   font-size: 22;
-}
-
-.list-wallet {
-  color: white;
-  border-color: main.$background-gray-color;
-  border-bottom-width: 12;
-  background-color: greenyellow;
 }
 
 .card-title {

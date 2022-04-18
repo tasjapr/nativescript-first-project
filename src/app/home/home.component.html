@@ -6,11 +6,11 @@
     <StackLayout row="0" , col="0">
       <FlexboxLayout padding="68, 20, 0" class="header">
         <label text="Total Balance" class="balance-title"></label>
-        <label text="+10,31%" class="balance-change" margin="0, 8"></label>
+        <label [text]="getBalanceChange()" class="balance-change" margin="0, 8"></label>
       </FlexboxLayout>
 
       <FlexboxLayout padding="4, 16, 0" class="header">
-        <label text="22,166" class="balance-value"></label>
+        <label [text]="getCurrentBalance()" class="balance-value"></label>
         <label text="USD" class="balance-currency" margin="0, 8"></label>
       </FlexboxLayout>
 
@@ -41,14 +41,20 @@
     </GridLayout>
 
     <ScrollView row="2" col="0" orientation="vertical">
-      <ListView row="0" col="0" [items]="wallets" (itemTap)="onItemTap($event)">
+      <ListView
+        row="0"
+        col="0"
+        [items]="wallets"
+        (itemTap)="onItemTap($event)"
+        margin="0, 16"
+      >
         <ng-template let-wallet="item">
           <GridLayout
-            class="list-wallet"
             columns="auto, *, *, auto"
             rows="*, *"
-            margin="0, 16"
             height="72"
+            backgroundColor="#ffffff"
+            borderRadius="10"
           >
             <Image
               row="0"
@@ -62,16 +68,13 @@
             ></Image>
 
             <StackLayout row="0" col="1" rowSpan="2" verticalAlignment="center">
-              <label
-                [text]="wallet.name"
-                class="card-title"
-              ></label>
+              <label [text]="wallet.name" class="card-title"></label>
               <label
                 [text]="wallet.change + '%'"
                 [ngClass]="{
                   'value-reduction': wallet.change < 0,
                   'value-increase': wallet.change >= 0
-                }"  
+                }"
               ></label>
             </StackLayout>
 
@@ -82,7 +85,7 @@
                 horizontalAlignment="right"
               ></label>
               <label
-                [text]="'$' + wallet.currentCost"
+                [text]="getFormattedTotalBallance(wallet)"
                 class="card-total-cost"
                 horizontalAlignment="right"
               ></label>
