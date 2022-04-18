@@ -6,31 +6,71 @@
       margin="92, 0, 0, 16"
     ></label>
 
-    <label text="Email" class="login-fields" margin="32, 16, 0, 16"></label>
-    <TextField
-      #email
-      hint="name@mail.com"
-      keyboardType="email"
-      returnKeyType="next"
-      autocorrect="false"
-      maxLength="20"
-      [(ngModel)]="user.email"
-      class="edit-text"
-    >
-    </TextField>
+    <label
+      text="Email"
+      [ngClass]="{
+        'login-fields': !error,
+        'login-fields-error': error
+      }"
+      margin="32, 16, 0, 16"
+    ></label>
 
-    <label text="Password" class="login-fields" margin="32, 16, 0, 16"></label>
-    <TextField
-      #password
-      hint="Your password"
-      returnKeyType="done"
-      autocorrect="false"
-      secure="true"
-      maxLength="20"
-      [(ngModel)]="user.password"
-      class="edit-text"
-    >
-    </TextField>
+    <GridLayout columns="*,auto">
+      <TextField
+        #email
+        hint="name@mail.com"
+        keyboardType="email"
+        col="0"
+        colSpan="2"
+        returnKeyType="next"
+        autocorrect="false"
+        maxLength="20"
+        (textChange)="onTextChanged()"
+        [(ngModel)]="user.email"
+        [ngClass]="{ 'edit-text': !error, 'edit-text-error': error }"
+      >
+      </TextField>
+      <Image
+        col="1"
+        src="res://error"
+        margin="0, 16, 15"
+        verticalAlignment="center"
+        visibility="{{ error ? 'visible' : 'collapsed' }}"
+      ></Image>
+    </GridLayout>
+
+    <label
+      text="Password"
+      [ngClass]="{
+        'login-fields': !error,
+        'login-fields-error': error
+      }"
+      margin="32, 16, 0, 16"
+    ></label>
+
+    <GridLayout columns="*,auto">
+      <TextField
+        #password
+        col="0"
+        colSpan="2"
+        hint="Your password"
+        returnKeyType="done"
+        autocorrect="false"
+        secure="true"
+        maxLength="20"
+        (textChange)="onTextChanged()"
+        [(ngModel)]="user.password"
+        [ngClass]="{ 'edit-text': !error,'edit-text-error': error }"
+      >
+      </TextField>
+      <Image
+        col="1"
+        src="res://error"
+        margin="0, 16, 15"
+        visibility="{{ error ? 'visible' : 'collapsed' }}"
+        verticalAlignment="center"
+      ></Image>
+    </GridLayout>
 
     <label
       text="Forgot password?"

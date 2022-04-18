@@ -1,35 +1,52 @@
 import { Wallet } from "./wallet.model";
 import { Injectable } from "@angular/core";
+import { formatNumber } from "@angular/common";
 
 var wallets: Array<Wallet>;
 
 @Injectable()
 export class WalletsService {
+  getCurrentBalance() {
+    let balance = 0.0;
+    wallets.map((w) => {
+      balance += w.currentCost;
+    });
+    return formatNumber(Number(balance), "en-US", "1.0-0");
+  }
+
+  getBalanceChange() {
+    let balanceChange = 0.0;
+    wallets.map((w) => {
+      balanceChange = balanceChange + w.change;
+    });
+    return Math.round(balanceChange * 100) / 100;
+  }
+
   getUserWallets() {
     wallets = [
       {
         name: "Bitcoin",
         shortName: "BTC",
-        change: -1.2,
-        currentCost: 4050,
+        change: -1.25,
+        currentCost: 15416.2,
         iconUrl: "res://btc_icon",
-        totalBalance: 0.85,
+        totalBalance: 3.62,
       },
       {
         name: "Etherium",
         shortName: "ETH",
-        change: 1.21,
-        currentCost: 3000,
+        change: 7.21,
+        currentCost: 5009,
         iconUrl: "res://eth_icon",
-        totalBalance: 1.04,
+        totalBalance: 10.04,
       },
       {
         name: "Peercoin",
         shortName: "PRC",
         change: 5.68,
-        currentCost: 500,
+        currentCost: 1500.00999,
         iconUrl: "res://per_icon",
-        totalBalance: 2.96,
+        totalBalance: 8.96,
       },
     ];
     return wallets;
@@ -56,7 +73,7 @@ export class WalletsService {
       { index: 7.5, value: 21400 },
       { index: 8, value: 17000 },
       { index: 8.5, value: 18800 },
-      { index: 9, value: 22700 }
+      { index: 9, value: 22700 },
     ];
 
     return data;

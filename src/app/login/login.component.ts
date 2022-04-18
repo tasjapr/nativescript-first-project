@@ -12,6 +12,7 @@ import { UserService } from "../@shared/user.service";
 })
 export class LoginComponent {
   user: User;
+  error: boolean = false;
   @ViewChild("password") password: ElementRef;
   @ViewChild("confirmPassword") confirmPassword: ElementRef;
 
@@ -25,7 +26,8 @@ export class LoginComponent {
   }
 
   validateLoginFields() {
-    return this.user.email && this.user.password;
+    let credentialsIsNotEmpty = this.user.email && this.user.password;
+    return credentialsIsNotEmpty && !this.error;
   }
 
   submit() {
@@ -44,15 +46,18 @@ export class LoginComponent {
         });
       })
       .catch(() => {
+        this.error = true;
         console.log("login failed");
       });
   }
 
+  onTextChanged(){
+    this.error = false;
+  }
+
   signUp() {
     console.log("signUp()");
-    this.routerExtensions.navigate(["tabs/home"], {
-      clearHistory: true,
-    });
+    this.routerExtensions.navigate(["sign-up"]);
   }
 
   forgotPassword() {

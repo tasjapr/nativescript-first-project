@@ -9,6 +9,11 @@
   font-size: 13;
 }
 
+.login-fields-error {
+  @extend .login-fields;
+  color: main.$accent-orange;
+}
+
 .edit-text {
   font-size: 19;
   max-lines: 1;
@@ -20,5 +25,20 @@
 }
 
 .edit-text:focus {
-  border-bottom-color: #04ff00;
+  border-bottom-color: main.$accent-green;
+}
+
+.edit-text-error {
+  @extend .edit-text;
+  border-bottom-color: main.$accent-orange;
+}
+
+.edit-text-error:focus {
+  border-bottom-color: main.$accent-orange;
+}
+
+.error-icon {
+  @extend .avenir-heavy;
+  font-size: 16;
+  color: white;
 }
