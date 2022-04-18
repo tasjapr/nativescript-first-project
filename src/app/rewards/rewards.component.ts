@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { Page } from "@nativescript/core";
+
 @Component({
   selector: "rewards",
   moduleId: module.id,

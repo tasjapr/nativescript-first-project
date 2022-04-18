@@ -16,6 +16,7 @@ import { AppComponent } from "./app.component";
 import { LoginComponent } from "./login/login.component";
 import { ForgotPasswordComponent } from "./forgot-password/forgot-password.component";
 import { SignUpComponent } from "./sign-up/sign-up.component";
+import { WalletDetailsComponent } from "./wallet-details/wallet-details.component";
 
 import { TabsModule } from "./tabs/tabs.module";
 import { HomeModule } from "./home/home.module";
@@ -49,6 +50,7 @@ registerElement(
     LoginComponent,
     ForgotPasswordComponent,
     SignUpComponent,
+    WalletDetailsComponent,
   ],
   providers: [UserService, WalletsService],
   schemas: [NO_ERRORS_SCHEMA],

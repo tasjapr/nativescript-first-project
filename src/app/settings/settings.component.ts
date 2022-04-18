@@ -8,12 +8,12 @@ import { Page } from "@nativescript/core";
   styleUrls: ["./settings.component.scss"],
 })
 export class SettingsComponent {
-  constructor(private page: Page, private routerExtension: RouterExtensions) {
+  constructor(private page: Page, private routerExtensions: RouterExtensions) {
     this.page.actionBarHidden = true;
   }
 
   logout() {
     console.log("logout");
-    this.routerExtension.navigateByUrl("login");
+    this.routerExtensions.navigateByUrl("login");
   }
 }

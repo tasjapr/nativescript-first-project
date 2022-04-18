@@ -1,8 +1,9 @@
 export class Wallet {
+  id: number;
   name: string;
   shortName: string;
   change: number;
-  currentCost: number;
+  balance: number;
   iconUrl: string;
-  totalBalance: number;
+  currentCost: number;
 }

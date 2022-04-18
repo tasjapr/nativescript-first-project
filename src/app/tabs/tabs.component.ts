@@ -11,7 +11,7 @@ export class TabsComponent implements OnInit {
   public selectedIndex: number;
 
   ngOnInit() {
-    this.routerExtension.navigate(
+    this.routerExtensions.navigate(
       [
         {
           outlets: {
@@ -33,7 +33,7 @@ export class TabsComponent implements OnInit {
   settingsTab: any;
 
   constructor(
-    private routerExtension: RouterExtensions,
+    private routerExtensions: RouterExtensions,
     private activeRoute: ActivatedRoute
   ) {
     this.homeTab = { iconSource: this.getIconSource("icn_home") };

@@ -17,7 +17,7 @@ import { HomeComponent } from "./home.component";
     NativeScriptRouterModule,
     NativeScriptRouterModule.forChild([
       { path: "", redirectTo: "home", pathMatch: "full" },
-      { path: "home", component: HomeComponent },
+      { path: "home", component: HomeComponent }
     ]),
   ],
   declarations: [HomeComponent],

@@ -6,7 +6,7 @@ var wallets: Array<Wallet>;
 
 @Injectable()
 export class WalletsService {
-  getCurrentBalance() {
+  getTotalBalance() {
     let balance = 0.0;
     wallets.map((w) => {
       balance += w.currentCost;
@@ -25,28 +25,31 @@ export class WalletsService {
   getUserWallets() {
     wallets = [
       {
+        id: 0,
         name: "Bitcoin",
         shortName: "BTC",
         change: -1.25,
-        currentCost: 15416.2,
+        balance: 3.6,
         iconUrl: "res://btc_icon",
-        totalBalance: 3.62,
+        currentCost: 15400,
       },
       {
+        id: 1,
         name: "Etherium",
         shortName: "ETH",
         change: 7.21,
-        currentCost: 5009,
+        balance: 10.2,
         iconUrl: "res://eth_icon",
-        totalBalance: 10.04,
+        currentCost: 5010.04,
       },
       {
+        id: 2,
         name: "Peercoin",
         shortName: "PRC",
         change: 5.68,
-        currentCost: 1500.00999,
+        balance: 8.951,
         iconUrl: "res://per_icon",
-        totalBalance: 8.96,
+        currentCost: 1508.96,
       },
     ];
     return wallets;
@@ -54,12 +57,13 @@ export class WalletsService {
 
   addWallet() {
     wallets.push({
+      id: wallets.length - 1,
       name: `New Coin ${wallets.length - 2}`,
       shortName: "NEW",
       change: 0.0,
-      currentCost: 0,
+      balance: 0,
       iconUrl: "res://per_icon",
-      totalBalance: 0.0,
+      currentCost: 0.0,
     });
 
     return wallets;
@@ -77,5 +81,11 @@ export class WalletsService {
     ];
 
     return data;
+  }
+
+  getWalletById(id: number): Wallet {
+    return wallets.find((item) => {
+      return item.id === id;
+    });
   }
 }

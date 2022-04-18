@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
-import { Router } from "@angular/router";
+import { formatNumber } from "@angular/common";
+import { RouterExtensions } from "@nativescript/angular";
 import { Font, Page } from "@nativescript/core";
 import { Wallet } from "../@shared/wallet.model";
 import { WalletsService } from "../@shared/wallets.service";
@@ -12,6 +13,11 @@ import { LineData } from "@nativescript-community/ui-chart/data/LineData";
 import { AxisDependency } from "@nativescript-community/ui-chart/components/YAxis";
 import { FontStyle, FontWeight } from "@nativescript/core/ui/styling/font";
 
+import { isIOS } from "@nativescript/core";
+
+declare var UITableViewCellSelectionStyle;
+declare var android;
+
 @Component({
   selector: "ns-home",
   templateUrl: "./home.component.html",
@@ -22,18 +28,35 @@ export class HomeComponent {
 
   constructor(
     private page: Page,
-    private router: Router,
+    private routerExtensions: RouterExtensions,
     private walletsService: WalletsService
   ) {
     this.page.actionBarHidden = true;
-
     this.wallets = walletsService.getUserWallets();
   }
 
-  onItemTap(args) {}
+  onItemLoading(args: any) {
+    if (isIOS) {
+      const cell = args.ios;
+      cell.selectionStyle =
+        UITableViewCellSelectionStyle.UITableViewCellSelectionStyleNone;
+    }
+  }
 
-  getCurrentBalance(): string {
-    return this.walletsService.getCurrentBalance().toString();
+  onLoaded(event) {
+    if (event.object.android) {
+      event.object.android.setSelector(
+        new android.graphics.drawable.StateListDrawable()
+      );
+    }
+  }
+
+  onItemTap(id: number) {
+    this.routerExtensions.navigate(["/wallet-details", id]);
+  }
+
+  getTotalBalance(): string {
+    return this.walletsService.getTotalBalance().toString();
   }
 
   getBalanceChange(): string {
@@ -45,10 +68,8 @@ export class HomeComponent {
     return prefix + balanceChange + "%";
   }
 
-  getFormattedTotalBalance(wallet: Wallet) {
-    return (
-      "$" + wallet.totalBalance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-    );
+  getFormattedCurrentCost(wallet: Wallet) {
+    return "$" + formatNumber(Number(wallet.currentCost), "en-US", "1.0-0");
   }
 
   addWallet() {

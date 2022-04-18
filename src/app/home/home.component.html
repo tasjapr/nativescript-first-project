@@ -6,11 +6,15 @@
     <StackLayout row="0" , col="0">
       <FlexboxLayout padding="68, 20, 0" class="header">
         <label text="Total Balance" class="balance-title"></label>
-        <label [text]="getBalanceChange()" class="balance-change" margin="0, 8"></label>
+        <label
+          [text]="getBalanceChange()"
+          class="balance-change"
+          margin="0, 8"
+        ></label>
       </FlexboxLayout>
 
       <FlexboxLayout padding="4, 16, 0" class="header">
-        <label [text]="getCurrentBalance()" class="balance-value"></label>
+        <label [text]="getTotalBalance()" class="balance-value"></label>
         <label text="USD" class="balance-currency" margin="0, 8"></label>
       </FlexboxLayout>
 
@@ -45,63 +49,77 @@
         row="0"
         col="0"
         [items]="wallets"
-        (itemTap)="onItemTap($event)"
+        (itemLoading)="onItemLoading($event)"
+        (loaded)="onLoaded($event)"
         margin="0, 16"
       >
         <ng-template let-wallet="item">
-          <GridLayout
-            columns="auto, *, *, auto"
-            rows="*, *"
-            height="72"
-            backgroundColor="#ffffff"
-            borderRadius="10"
-          >
-            <Image
-              row="0"
-              col="0"
-              rowSpan="2"
-              [src]="wallet.iconUrl"
-              width="40"
-              height="40"
-              margin="0, 16"
-              verticalAlignment="center"
-            ></Image>
+          <StackLayout padding="0, 0, 12">
+            <GridLayout
+              columns="auto, *, *, auto"
+              rows="*, *"
+              height="72"
+              backgroundColor="#ffffff"
+              borderRadius="10"
+              (tap)="onItemTap(wallet.id)"
+            >
+              <Image
+                row="0"
+                col="0"
+                rowSpan="2"
+                [src]="wallet.iconUrl"
+                width="40"
+                height="40"
+                margin="0, 16"
+                verticalAlignment="center"
+              ></Image>
 
-            <StackLayout row="0" col="1" rowSpan="2" verticalAlignment="center">
-              <label [text]="wallet.name" class="card-title"></label>
-              <label
-                [text]="wallet.change + '%'"
-                [ngClass]="{
-                  'value-reduction': wallet.change < 0,
-                  'value-increase': wallet.change >= 0
-                }"
-              ></label>
-            </StackLayout>
+              <StackLayout
+                row="0"
+                col="1"
+                rowSpan="2"
+                verticalAlignment="center"
+              >
+                <label [text]="wallet.name" class="card-title"></label>
+                <label
+                  [text]="wallet.change + '%'"
+                  [ngClass]="{
+                    'value-reduction': wallet.change < 0,
+                    'value-increase': wallet.change >= 0
+                  }"
+                ></label>
+              </StackLayout>
 
-            <StackLayout row="0" col="2" rowSpan="2" verticalAlignment="center">
-              <label
-                [text]="wallet.totalBalance + ' ' + wallet.shortName"
-                class="card-value"
-                horizontalAlignment="right"
-              ></label>
-              <label
-                [text]="getFormattedTotalBallance(wallet)"
-                class="card-total-cost"
-                horizontalAlignment="right"
-              ></label>
-            </StackLayout>
+              <StackLayout
+                row="0"
+                col="2"
+                rowSpan="2"
+                verticalAlignment="center"
+              >
+                <label
+                  [text]="wallet.balance + ' ' + wallet.shortName"
+                  class="card-value"
+                  horizontalAlignment="right"
+                ></label>
+                <label
+                  [text]="getFormattedCurrentCost(wallet)"
+                  class="card-total-cost"
+                  horizontalAlignment="right"
+                ></label>
+              </StackLayout>
 
-            <Image
-              row="0"
-              col="3"
-              rowSpan="2"
-              src="res://icn_arrow"
-              width="7"
-              height="12"
-              margin="0, 16"
-              verticalAlignment="center"
-            ></Image>
-          </GridLayout>
+              <Image
+                row="0"
+                col="3"
+                rowSpan="2"
+                src="res://icn_arrow"
+                width="7"
+                height="12"
+                margin="0, 16"
+                verticalAlignment="center"
+              ></Image>
+            </GridLayout>
+          </StackLayout>
         </ng-template>
       </ListView>
     </ScrollView>
