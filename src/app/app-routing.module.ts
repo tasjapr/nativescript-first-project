@@ -1,19 +1,15 @@
 import { NgModule } from "@angular/core";
 import { Routes } from "@angular/router";
-import {
-  NativeScriptRouterModule,
-  NSEmptyOutletComponent,
-} from "@nativescript/angular";
+import { NativeScriptRouterModule } from "@nativescript/angular";
 
 import { LoginComponent } from "./login/login.component";
 import { ForgotPasswordComponent } from "./forgot-password/forgot-password.component";
 import { SignUpComponent } from "./sign-up/sign-up.component";
-import { TabsComponent } from "./tabs/tabs.component";
 
 const routes: Routes = [
   {
     path: "",
-    redirectTo: "login",
+    redirectTo: "/tabs/default",
     pathMatch: "full",
   },
   { path: "login", component: LoginComponent },

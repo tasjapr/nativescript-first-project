@@ -18,8 +18,11 @@ import { ForgotPasswordComponent } from "./forgot-password/forgot-password.compo
 import { SignUpComponent } from "./sign-up/sign-up.component";
 
 import { TabsModule } from "./tabs/tabs.module";
-import { SettingsModule } from "./settings/settings.module";
 import { HomeModule } from "./home/home.module";
+import { NotificationsModule } from "./notifications/notifications.module";
+import { DashboardModule } from "./dashboard/dashboard.module";
+import { RewardsModule } from "./rewards/rewards.module";
+import { SettingsModule } from "./settings/settings.module";
 
 registerElement(
   "LineChart",
@@ -35,6 +38,9 @@ registerElement(
     NativeScriptCommonModule,
     NativeScriptFormsModule,
     TabsModule,
+    NotificationsModule,
+    DashboardModule,
+    RewardsModule,
     SettingsModule,
     HomeModule,
   ],
