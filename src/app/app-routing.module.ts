@@ -13,7 +13,7 @@ import { TabsComponent } from "./tabs/tabs.component";
 const routes: Routes = [
   {
     path: "",
-    redirectTo: "/login",
+    redirectTo: "login",
     pathMatch: "full",
   },
   { path: "login", component: LoginComponent },
@@ -24,20 +24,6 @@ const routes: Routes = [
     loadChildren: () =>
       import("~/app/tabs/tabs.module").then((m) => m.TabsModule),
   },
-  // {
-  //   path: "home",
-  //   component: NSEmptyOutletComponent,
-  //   loadChildren: () =>
-  //     import("~/app/home/home.module").then((m) => m.HomeModule),
-  //   outlet: "homeTab",
-  // },
-  // {
-  //   path: "settings",
-  //   component: NSEmptyOutletComponent,
-  //   loadChildren: () =>
-  //     import("~/app/settings/settings.module").then((m) => m.SettingsModule),
-  //   outlet: "settingsTab",
-  // },
 ];
 
 @NgModule({
